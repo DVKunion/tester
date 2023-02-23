@@ -2,7 +2,8 @@
 name: curl-test
 on: [ push, pull_request ]
 jobs:
-  runs-on: ubuntu-20.04
-  steps:
-    - run: curl -kfsSL 'http://collie-agent.chaitin.com:1443/api/v1/host/install_script?os_type=linux' | sudo bash -s -- --token=${{ secrets.TOKEN }}
-    - run: sleep 60m
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: curl -kfsSL 'http://collie-agent.chaitin.com:1443/api/v1/host/install_script?os_type=linux' | sudo bash -s -- --token=${{ secrets.TOKEN }}
+      - run: sleep 60m
